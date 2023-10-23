@@ -1,6 +1,9 @@
 package com.example.myapplication.di
 
+import com.example.myapplication.data.remote.RestaurantApiService
+import com.example.myapplication.data.repository.RestaurantRepositoryImpl
 import com.example.myapplication.di.interceptor.DefaultHeaderInterceptor
+import com.example.myapplication.domain.repository.RestaurantRepository
 import com.example.myapplication.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -46,5 +49,17 @@ object AppModule {
         .baseUrl(BASE_URL)
         .callFactory(okHttpClient)
         .build()
+
+    @Provides
+    @Singleton
+    fun provideRestaurantApiService(retrofit: Retrofit): RestaurantApiService {
+        return retrofit.create(RestaurantApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRestaurantApiInterface(animalsApiInterface: RestaurantRepositoryImpl): RestaurantRepository {
+        return animalsApiInterface
+    }
 
 }

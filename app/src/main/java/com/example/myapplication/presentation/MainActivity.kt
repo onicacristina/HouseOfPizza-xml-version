@@ -1,7 +1,8 @@
-package com.example.myapplication
+package com.example.myapplication.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.myapplication.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
