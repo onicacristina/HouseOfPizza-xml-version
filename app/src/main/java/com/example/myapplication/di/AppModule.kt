@@ -51,6 +51,18 @@ object AppModule {
         .build()
 
     @Provides
+    fun provideDefaultHeaderInterceptor(): DefaultHeaderInterceptor {
+        return DefaultHeaderInterceptor()
+    }
+
+    @Provides
+    fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.NONE
+        }
+    }
+
+    @Provides
     @Singleton
     fun provideRestaurantApiService(retrofit: Retrofit): RestaurantApiService {
         return retrofit.create(RestaurantApiService::class.java)
@@ -58,8 +70,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRestaurantApiInterface(animalsApiInterface: RestaurantRepositoryImpl): RestaurantRepository {
-        return animalsApiInterface
+    fun provideRestaurantApiInterface(api: RestaurantApiService): RestaurantRepository {
+        return RestaurantRepositoryImpl(api)
     }
+
+//    @Provides
+//    @Singleton
+//    fun provideRestaurantRepository(apiService: RestaurantApiService) :
 
 }

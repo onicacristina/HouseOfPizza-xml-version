@@ -1,6 +1,7 @@
 package com.example.myapplication.domain.use_cases.get_restaurants
 
 import com.example.myapplication.data.dto.toRestaurant
+import com.example.myapplication.data.repository.RestaurantRepositoryImpl
 import com.example.myapplication.domain.model.Restaurant
 import com.example.myapplication.domain.repository.RestaurantRepository
 import com.example.myapplication.utils.Resource
