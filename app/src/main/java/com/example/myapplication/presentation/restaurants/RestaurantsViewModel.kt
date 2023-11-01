@@ -17,7 +17,6 @@ import javax.inject.Inject
 @HiltViewModel
 class RestaurantsViewModel @Inject constructor(
     private val getRestaurantsUseCase: GetRestaurantsUseCase,
-//    private val repository: RestaurantRepository
 ) :
     ViewModel(),
     StateDelegate<RestaurantsViewModel.State> by DefaultStateDelegate(State.Loading) {
