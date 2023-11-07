@@ -38,4 +38,8 @@ class MainActivity : AppCompatActivity() {
         onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         binding.navView.setupWithNavController(navController)
     }
+
+    fun bottomNavigationVisibility(visibility: Int) {
+        binding.navView.visibility = visibility
+    }
 }
