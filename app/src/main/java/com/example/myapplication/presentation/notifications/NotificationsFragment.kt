@@ -1,4 +1,4 @@
-package com.example.myapplication.presentation.ui.ui.notifications
+package com.example.myapplication.presentation.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
