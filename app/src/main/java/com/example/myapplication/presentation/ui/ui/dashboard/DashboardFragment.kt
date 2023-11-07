@@ -1,42 +1,33 @@
 package com.example.myapplication.presentation.ui.ui.dashboard
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDashboardBinding
+import com.example.myapplication.presentation.base.BaseViewBindingFragment
+import com.example.myapplication.utils.extensions.viewBinding
 
-class DashboardFragment : Fragment() {
+class DashboardFragment :
+    BaseViewBindingFragment<FragmentDashboardBinding>(R.layout.fragment_dashboard) {
 
-    private var _binding: FragmentDashboardBinding? = null
+    override val viewBinding: FragmentDashboardBinding by viewBinding(FragmentDashboardBinding::bind)
+    override val viewModel: DashboardViewModel by viewModels()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+        initListeners()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun initViews() {
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+    }
+
+    private fun initListeners() {
+
     }
 }
