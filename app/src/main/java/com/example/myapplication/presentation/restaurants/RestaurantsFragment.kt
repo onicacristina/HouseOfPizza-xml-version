@@ -1,33 +1,35 @@
 package com.example.myapplication.presentation.restaurants
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentRestaurantsBinding
+import com.example.myapplication.presentation.base.BaseViewBindingFragment
+import com.example.myapplication.utils.extensions.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class RestaurantsFragment : Fragment() {
+@AndroidEntryPoint
+class RestaurantsFragment :
+    BaseViewBindingFragment<FragmentRestaurantsBinding>(R.layout.fragment_restaurants) {
 
-    private var _binding: FragmentRestaurantsBinding? = null
+    override val viewBinding: FragmentRestaurantsBinding by viewBinding(FragmentRestaurantsBinding::bind)
+    override val viewModel: RestaurantsViewModel by viewModels()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentRestaurantsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+        initListeners()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun initViews() {
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+    }
+
+    private fun initListeners() {
+
     }
 }

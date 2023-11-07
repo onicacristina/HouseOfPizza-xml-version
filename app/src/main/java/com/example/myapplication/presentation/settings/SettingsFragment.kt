@@ -1,32 +1,34 @@
 package com.example.myapplication.presentation.settings
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentSettingsBinding
+import com.example.myapplication.presentation.base.BaseViewBindingFragment
+import com.example.myapplication.utils.extensions.viewBinding
 
-class SettingsFragment : Fragment() {
+class SettingsFragment :
+    BaseViewBindingFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
 
-    companion object {
-        fun newInstance() = SettingsFragment()
+    override val viewBinding: FragmentSettingsBinding by viewBinding(FragmentSettingsBinding::bind)
+    override val viewModel: SettingsViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViews()
+        initListeners()
     }
 
-    private lateinit var viewModel: SettingsViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+    private fun initViews() {
+        initToolbar()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun initToolbar() {
+    }
+
+    private fun initListeners() {
+
     }
 
 }
