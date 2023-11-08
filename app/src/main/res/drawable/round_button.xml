@@ -1,9 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/material_dynamic_neutral40">
+    android:color="@color/white">
     <item>
-        <shape xmlns:android="http://schemas.android.com/apk/res/android">
-            <corners android:radius="1dp" />
-            <solid android:color="@color/design_default_color_error" />
+        <shape android:shape="rectangle">
+            <solid android:color="@color/orange_main" />
+            <corners android:radius="38dp" />
+            <padding
+                android:bottom="9dp"
+                android:top="9dp" />
         </shape>
     </item>
 </ripple>

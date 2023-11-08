@@ -27,13 +27,11 @@ class GetStartedFragment : NoBottomNavigationFragment<FragmentGetStartedBinding>
     }
 
     private fun initViews() {
-        initToolbar()
-    }
-
-    private fun initToolbar() {
     }
 
     private fun initListeners() {
-
+        viewBinding.btnGetStarted.setOnClickListener {
+            navController.navigate(R.id.navigation_home)
+        }
     }
 }

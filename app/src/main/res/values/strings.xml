@@ -8,5 +8,5 @@
     
     <!-- Get started -->
     <string name="get_started">Get started</string>
-    <string name="are_you_hungry">Are you\n <font color="#FA5BO1">hungry?</font></string>
+    <string name="are_you_hungry">Are you\n <font color="#FA5B01">hungry?</font></string>
 </resources>
