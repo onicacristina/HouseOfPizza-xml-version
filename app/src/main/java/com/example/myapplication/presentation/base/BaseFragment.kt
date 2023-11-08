@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.myapplication.presentation.ui.MainActivity
+import com.example.myapplication.presentation.MainActivity
 
 abstract class BaseFragment : Fragment {
 

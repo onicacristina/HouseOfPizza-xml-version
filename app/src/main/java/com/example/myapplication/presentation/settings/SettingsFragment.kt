@@ -1,17 +1,18 @@
-package com.example.myapplication.presentation.ui.ui.home
+package com.example.myapplication.presentation.settings
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.myapplication.R
-import com.example.myapplication.databinding.FragmentHomeBinding
+import com.example.myapplication.databinding.FragmentSettingsBinding
 import com.example.myapplication.presentation.base.BaseViewBindingFragment
 import com.example.myapplication.utils.extensions.viewBinding
 
-class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class SettingsFragment :
+    BaseViewBindingFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
 
-    override val viewBinding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewBinding: FragmentSettingsBinding by viewBinding(FragmentSettingsBinding::bind)
+    override val viewModel: SettingsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,4 +30,5 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>(R.layout.fragm
     private fun initListeners() {
 
     }
+
 }

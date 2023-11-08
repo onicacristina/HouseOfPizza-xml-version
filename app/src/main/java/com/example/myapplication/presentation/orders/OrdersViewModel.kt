@@ -1,10 +1,10 @@
-package com.example.myapplication.presentation.ui.ui.notifications
+package com.example.myapplication.presentation.orders
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class OrdersViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"

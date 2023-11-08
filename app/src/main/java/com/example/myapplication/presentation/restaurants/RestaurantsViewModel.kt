@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.domain.model.Restaurant
-import com.example.myapplication.domain.repository.RestaurantRepository
 import com.example.myapplication.domain.use_cases.get_restaurants.GetRestaurantsUseCase
 import com.example.myapplication.utils.DefaultStateDelegate
 import com.example.myapplication.utils.Resource

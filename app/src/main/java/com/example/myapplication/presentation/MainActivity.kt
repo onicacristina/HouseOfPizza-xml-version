@@ -1,4 +1,4 @@
-package com.example.myapplication.presentation.ui
+package com.example.myapplication.presentation
 
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
