@@ -28,6 +28,7 @@
         android:contentDescription="@null"
         android:focusable="true"
         android:padding="4dp"
+        android:visibility="invisible"
         android:src="@drawable/ic_back_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
