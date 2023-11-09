@@ -16,4 +16,12 @@
     <string name="language">Language</string>
     <string name="version">Version %1$s</string>
 
+    <!--   language fragment   -->
+
+    <string name="change_the_system_language">You can select the application\'s language from here</string>
+    <string name="save_changes">Save changes</string>
+    <string name="english">English</string>
+    <string name="romanian">Romanian</string>
+
+
 </resources>
