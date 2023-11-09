@@ -21,7 +21,7 @@ class RestaurantsViewModel @Inject constructor(
     StateDelegate<RestaurantsViewModel.State> by DefaultStateDelegate(State.Loading) {
 
     init {
-//        getRestaurants()
+        getRestaurants()
     }
 
     fun getRestaurants() {
