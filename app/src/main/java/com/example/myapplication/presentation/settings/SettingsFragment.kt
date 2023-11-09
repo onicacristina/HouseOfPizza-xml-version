@@ -25,6 +25,7 @@ class SettingsFragment :
     }
 
     private fun initToolbar() {
+        viewBinding.toolbar.tvTitle.setText(R.string.settings)
     }
 
     private fun initListeners() {
