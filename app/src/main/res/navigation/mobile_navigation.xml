@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/getStartedFragment">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -14,13 +14,13 @@
     <fragment
         android:id="@+id/navigation_restaurants"
         android:name="com.example.myapplication.presentation.restaurants.RestaurantsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/restaurants"
         tools:layout="@layout/fragment_restaurants" />
 
     <fragment
         android:id="@+id/navigation_orders"
         android:name="com.example.myapplication.presentation.orders.OrdersFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/orders"
         tools:layout="@layout/fragment_orders" />
     <fragment
         android:id="@+id/navigation_settings"
@@ -32,4 +32,9 @@
         android:name="com.example.myapplication.presentation.contact.ContactFragment"
         android:label="fragment_contact"
         tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/getStartedFragment"
+        android:name="com.example.myapplication.presentation.get_started.GetStartedFragment"
+        android:label="fragment_get_started"
+        tools:layout="@layout/fragment_get_started" />
 </navigation>
