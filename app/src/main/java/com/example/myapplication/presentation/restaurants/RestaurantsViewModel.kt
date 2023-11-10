@@ -43,7 +43,7 @@ class RestaurantsViewModel @Inject constructor(
     sealed class State {
         object Loading : State()
         object Empty : State()
-        data class Value(val petsList: List<Restaurant>) : State()
+        data class Value(val restaurants: List<Restaurant>) : State()
 
         data class Error(val errorMessage: String) : State()
     }

@@ -11,4 +11,8 @@ data class Restaurant(
     val address2: String,
     val latitude: Double,
     val longitude: Double
-)
+) {
+    fun getFullAddress(): String {
+        return "$address1, $address2"
+    }
+}
