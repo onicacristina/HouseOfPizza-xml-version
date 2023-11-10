@@ -18,7 +18,7 @@
 
     <!--   language fragment   -->
 
-    <string name="change_the_system_language">You can select the application\'s language from here</string>
+    <string name="change_the_system_language">You can change the application\'s language from here</string>
     <string name="save_changes">Save changes</string>
     <string name="select_language">Select language</string>
     <string name="english">English</string>
