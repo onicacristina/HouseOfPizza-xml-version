@@ -24,7 +24,7 @@ class RestaurantsViewModel @Inject constructor(
         getRestaurants()
     }
 
-    fun getRestaurants() {
+    private fun getRestaurants() {
         getRestaurantsUseCase().onEach { result ->
             Log.e("result", "result" + result)
             currentState = when (result) {
@@ -33,7 +33,6 @@ class RestaurantsViewModel @Inject constructor(
                     Log.e("result", "result" + restaurants)
                     if (restaurants.isEmpty()) State.Empty else State.Value(restaurants)
                 }
-
                 is Resource.Error -> State.Error(result.message ?: "")
                 is Resource.Loading -> State.Loading
             }
@@ -44,7 +43,6 @@ class RestaurantsViewModel @Inject constructor(
         object Loading : State()
         object Empty : State()
         data class Value(val restaurants: List<Restaurant>) : State()
-
         data class Error(val errorMessage: String) : State()
     }
 

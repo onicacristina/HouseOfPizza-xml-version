@@ -28,7 +28,6 @@ class RestaurantsFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getRestaurants()
         initViews()
         initListeners()
         initObservers()
@@ -80,6 +79,15 @@ class RestaurantsFragment :
             viewBinding.rvRestaurants.isVisible = false
             viewBinding.tvNoData.isVisible = true
             viewBinding.pbLoading.isVisible = false
+            viewBinding.tvNoData.text = getString(R.string.no_restaurants_found)
+            setList(emptyList()) // Clear the list when in empty state
+        }
+
+        fun renderErrorState(error: String) {
+            viewBinding.rvRestaurants.isVisible = false
+            viewBinding.tvNoData.isVisible = true
+            viewBinding.pbLoading.isVisible = false
+            viewBinding.tvNoData.text = error.ifEmpty { getString(R.string.something_went_wrong) }
             setList(emptyList()) // Clear the list when in empty state
         }
 
@@ -100,6 +108,7 @@ class RestaurantsFragment :
         when (state) {
             is RestaurantsViewModel.State.Value -> renderListState(state.restaurants)
             is RestaurantsViewModel.State.Loading -> renderLoadingState()
+            is RestaurantsViewModel.State.Error -> renderErrorState(state.errorMessage)
             else -> renderEmptyState()
         }
     }
