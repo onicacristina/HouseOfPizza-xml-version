@@ -1,5 +1,6 @@
 package com.example.myapplication.di
 
+import com.example.myapplication.data.local.PizzaLocalDatabase
 import com.example.myapplication.data.remote.RestaurantApiService
 import com.example.myapplication.data.repository.RestaurantRepositoryImpl
 import com.example.myapplication.di.interceptor.DefaultHeaderInterceptor
@@ -70,8 +71,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRestaurantApiInterface(api: RestaurantApiService): RestaurantRepository {
-        return RestaurantRepositoryImpl(api)
+    fun provideRestaurantApiInterface(api: RestaurantApiService, db: PizzaLocalDatabase): RestaurantRepository {
+        return RestaurantRepositoryImpl(api, db.restaurantsDao)
     }
 
 //    @Provides

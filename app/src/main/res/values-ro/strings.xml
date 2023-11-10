@@ -24,5 +24,9 @@
     <string name="english">Engleză</string>
     <string name="romanian">Română</string>
 
+    <!--   restaurants   -->
+    <string name="no_restaurants_found">Nu a fost găsit nici un restaurant</string>
+    <string name="something_went_wrong">Ceva nu a mers bine</string>
+
 
 </resources>
