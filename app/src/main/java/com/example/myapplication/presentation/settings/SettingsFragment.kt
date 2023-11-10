@@ -29,7 +29,9 @@ class SettingsFragment :
     }
 
     private fun initListeners() {
-
+        viewBinding.languageContainer.setOnClickListener {
+            navController.navigate(R.id.select_language_fragment)
+        }
     }
 
 }

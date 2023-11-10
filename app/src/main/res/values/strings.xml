@@ -5,15 +5,25 @@
     <string name="orders">Orders</string>
     <string name="settings">Settings</string>
     <string name="contact">Contact</string>
-  
+
     <!-- Get started -->
     <string name="get_started">Get started</string>
-    <string name="are_you_hungry">Are you\n <font color="#FA5B01">hungry?</font></string>  
-  
+    <string name="are_you_hungry">Are you\n <font color="#FA5B01">hungry?</font></string>
+
     <!--   settings   -->
+
     <string name="dark_mode">Dark mode</string>
     <string name="language">Language</string>
     <string name="version">Version %1$s</string>
+
+    <!--   language fragment   -->
+
+    <string name="change_the_system_language">You can change the application\'s language from here</string>
+    <string name="save_changes">Save changes</string>
+    <string name="select_language">Select language</string>
+    <string name="english">English</string>
+    <string name="romanian">Romanian</string>
+
 
     <!--   restaurants   -->
     <string name="no_restaurants_found">No restaurants found</string>

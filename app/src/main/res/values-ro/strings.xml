@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">House of Pizza</string>
+    <string name="title_home">Acasă</string>
+    <string name="restaurants">Restaurante</string>
+    <string name="orders">Comenzi</string>
+    <string name="settings">Setări</string>
+    <string name="contact">Contact</string>
+
+    <!-- Get started -->
+    <string name="get_started">Începe</string>
+    <string name="are_you_hungry">Iți este \n <font color="#FA5B01">foame?</font></string>
+
+    <!--   settings   -->
+
+    <string name="dark_mode">Mod întunecat</string>
+    <string name="language">Limba</string>
+    <string name="version">Versiune %1$s</string>
+
+    <!--   language fragment   -->
+
+    <string name="change_the_system_language">De aici poți selecta limba aplicației</string>
+    <string name="save_changes">Salvează modificările</string>
+    <string name="select_language">Selectează limba</string>
+    <string name="english">Engleză</string>
+    <string name="romanian">Română</string>
+
+    <!--   restaurants   -->
+    <string name="no_restaurants_found">Nu a fost găsit nici un restaurant</string>
+    <string name="something_went_wrong">Ceva nu a mers bine</string>
+
+
+</resources>
