@@ -8,11 +8,12 @@ data class MenuRestaurant(
     @PrimaryKey val id: Int,
     val category: String,
     val name: String,
-    val topping: List<String>? = null,
+    val toppings: List<String>? = null,
     val price: Int,
-    val rank: Int? = null
+    val rank: Int? = null,
+    val imageResId: Int
 ) {
-    fun getFormattedToppings() : String? {
-        return topping?.joinToString(separator = ", ")
+    fun getFormattedToppings(): String? {
+        return toppings?.joinToString(separator = ", ")
     }
 }

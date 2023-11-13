@@ -58,7 +58,7 @@ class RestaurantMenuAdapter(
         }
 
         private fun bindToppings(data: MenuRestaurant) {
-            val doesHaveToppings = data.topping.isNullOrEmpty()
+            val doesHaveToppings = data.toppings.isNullOrEmpty()
             binding.tvToppings.isVisible = !doesHaveToppings
             binding.tvToppingsLabel.isVisible = !doesHaveToppings
 
