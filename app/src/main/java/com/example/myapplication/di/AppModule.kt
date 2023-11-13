@@ -1,9 +1,12 @@
 package com.example.myapplication.di
 
 import com.example.myapplication.data.local.PizzaLocalDatabase
+import com.example.myapplication.data.remote.MenuApiService
 import com.example.myapplication.data.remote.RestaurantApiService
+import com.example.myapplication.data.repository.MenuRepositoryImpl
 import com.example.myapplication.data.repository.RestaurantRepositoryImpl
 import com.example.myapplication.di.interceptor.DefaultHeaderInterceptor
+import com.example.myapplication.domain.repository.MenuRepository
 import com.example.myapplication.domain.repository.RestaurantRepository
 import com.example.myapplication.utils.Constants
 import dagger.Module
@@ -75,8 +78,15 @@ object AppModule {
         return RestaurantRepositoryImpl(api, db.restaurantsDao)
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideRestaurantRepository(apiService: RestaurantApiService) :
+    @Provides
+    @Singleton
+    fun provideMenuApiService(retrofit: Retrofit): MenuApiService {
+        return retrofit.create(MenuApiService::class.java)
+    }
 
+    @Provides
+    @Singleton
+    fun provideMenuApiInterface(apiService: MenuApiService, db: PizzaLocalDatabase): MenuRepository {
+        return MenuRepositoryImpl(apiService)
+    }
 }
