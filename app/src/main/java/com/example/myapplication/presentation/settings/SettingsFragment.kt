@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSettingsBinding
 import com.example.myapplication.presentation.base.BaseViewBindingFragment
+import com.example.myapplication.utils.Preferences
 import com.example.myapplication.utils.extensions.viewBinding
 
 class SettingsFragment :
@@ -18,6 +19,7 @@ class SettingsFragment :
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initListeners()
+        initSwitch()
     }
 
     private fun initViews() {
@@ -32,6 +34,22 @@ class SettingsFragment :
         viewBinding.languageContainer.setOnClickListener {
             navController.navigate(R.id.select_language_fragment)
         }
+        initSwitchListener()
+    }
+    
+    private fun initSwitchListener(){
+        viewBinding.btnSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked)
+                Preferences.setAppTheme(EAppTheme.DARK)
+            else
+                Preferences.setAppTheme(EAppTheme.LIGHT)
+            getMainActivity()?.setAppMode()
+        }
+    }
+
+    private fun initSwitch() {
+        val appTheme = Preferences.getAppTheme()
+        viewBinding.btnSwitch.isChecked = EAppTheme.LIGHT != appTheme
     }
 
 }

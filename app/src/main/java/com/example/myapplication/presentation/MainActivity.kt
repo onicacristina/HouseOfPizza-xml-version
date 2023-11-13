@@ -3,12 +3,15 @@ package com.example.myapplication.presentation
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.presentation.settings.EAppTheme
+import com.example.myapplication.utils.Preferences
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigation()
+        setAppMode()
     }
 
     private fun initNavigation() {
@@ -44,4 +48,16 @@ class MainActivity : AppCompatActivity() {
     fun bottomNavigationVisibility(visibility: Int) {
         binding.navView.visibility = visibility
     }
+
+    fun setAppMode(){
+        when(getAppThemeFromPrefs()){
+            EAppTheme.LIGHT -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            EAppTheme.DARK -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+    }
+
+    private fun getAppThemeFromPrefs(): EAppTheme{
+        return Preferences.getAppTheme()
+    }
+
 }
