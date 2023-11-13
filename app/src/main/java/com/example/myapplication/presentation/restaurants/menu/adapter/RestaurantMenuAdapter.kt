@@ -12,11 +12,11 @@ import com.example.myapplication.domain.model.MenuRestaurant
 typealias OnAdditionClickListener = (MenuRestaurant) -> Unit
 typealias OnDecreaseClickListener = (MenuRestaurant) -> Unit
 
-class MenuAdapter(
-    diffutils: MenuDiffUtil,
+class RestaurantMenuAdapter(
+    diffutils: RestaurantMenuDiffUtil,
     private val onAdditionClickListener: OnAdditionClickListener,
     private val onDecreaseClickListener: OnDecreaseClickListener
-) : ListAdapter<MenuRestaurant, MenuAdapter.ViewHolder>(diffutils) {
+) : ListAdapter<MenuRestaurant, RestaurantMenuAdapter.ViewHolder>(diffutils) {
 
 
     class ViewHolder(

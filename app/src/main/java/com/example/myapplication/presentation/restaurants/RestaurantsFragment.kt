@@ -2,6 +2,7 @@ package com.example.myapplication.presentation.restaurants
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -14,6 +15,7 @@ import com.example.myapplication.domain.model.Restaurant
 import com.example.myapplication.presentation.base.BaseViewBindingFragment
 import com.example.myapplication.presentation.restaurants.adapter.RestaurantAdapter
 import com.example.myapplication.presentation.restaurants.adapter.RestaurantDiffUtil
+import com.example.myapplication.utils.Constants
 import com.example.myapplication.utils.extensions.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -64,7 +66,8 @@ class RestaurantsFragment :
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = RestaurantAdapter(
             RestaurantDiffUtil(),
-            onClickListener = {
+            onClickListener = { restaurant ->
+                navigateToRestaurantMenuScreen(restaurant)
             }
         )
         recyclerView.adapter = adapter
@@ -111,5 +114,12 @@ class RestaurantsFragment :
             is RestaurantsViewModel.State.Error -> renderErrorState(state.errorMessage)
             else -> renderEmptyState()
         }
+    }
+
+    private fun navigateToRestaurantMenuScreen(restaurant: Restaurant) {
+        navController.navigate(
+            R.id.action_navigation_restaurants_to_restaurantMenuFragment,
+            bundleOf(Constants.RESTAURANT_ID to restaurant.id)
+        )
     }
 }

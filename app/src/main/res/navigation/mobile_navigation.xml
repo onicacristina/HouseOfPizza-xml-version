@@ -15,7 +15,11 @@
         android:id="@+id/navigation_restaurants"
         android:name="com.example.myapplication.presentation.restaurants.RestaurantsFragment"
         android:label="@string/restaurants"
-        tools:layout="@layout/fragment_restaurants" />
+        tools:layout="@layout/fragment_restaurants">
+        <action
+            android:id="@+id/action_navigation_restaurants_to_restaurantMenuFragment"
+            app:destination="@id/restaurantMenuFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_orders"
@@ -43,4 +47,15 @@
         android:name="com.example.myapplication.presentation.settings.select_language.SelectLanguageFragment"
         android:label="fragment_select_language"
         tools:layout="@layout/fragment_select_language" />
+    <fragment
+        android:id="@+id/restaurantMenuFragment"
+        android:name="com.example.myapplication.presentation.restaurants.menu.RestaurantMenuFragment"
+        android:label="fragment_restaurant_menu"
+        tools:layout="@layout/fragment_restaurant_menu">
+
+        <argument
+            android:name="restaurantId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
 </navigation>

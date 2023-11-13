@@ -3,7 +3,7 @@ package com.example.myapplication.presentation.restaurants.menu.adapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.myapplication.domain.model.MenuRestaurant
 
-class MenuDiffUtil : DiffUtil.ItemCallback<MenuRestaurant>() {
+class RestaurantMenuDiffUtil : DiffUtil.ItemCallback<MenuRestaurant>() {
     override fun areItemsTheSame(oldItem: MenuRestaurant, newItem: MenuRestaurant): Boolean {
         return oldItem.id == newItem.id
     }
