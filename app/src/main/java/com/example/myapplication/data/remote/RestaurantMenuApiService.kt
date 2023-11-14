@@ -7,7 +7,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RestaurantMenuApiService {
-    @GET("restaurants/{restaurantId}")
+    @GET("restaurants/{restaurantId}/menu")
     suspend fun getMenuByRestaurant(
         @Path("restaurantId") restaurantId: Int,
         @Query("category") category: String = Constants.MENU_CATEGORY,

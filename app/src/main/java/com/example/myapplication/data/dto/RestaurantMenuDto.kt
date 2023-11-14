@@ -7,7 +7,7 @@ data class RestaurantMenuDto(
     val id: Int,
     val category: String,
     val name: String,
-//    val topping: List<String>? = null,
+    val topping: List<String>? = null,
     val price: Int,
     val rank: Int? = null
 ) {
@@ -16,12 +16,12 @@ data class RestaurantMenuDto(
             id = id,
             name = name,
             category = category,
-            toppings = emptyList(),
-//            toppings = topping,
+//            toppings = emptyList(),
+            toppings = topping,
             price = price,
             rank = rank,
-            imageResId = R.drawable.vesuvio_pizza
-//            imageResId = getResourceIdByCategory()
+//            imageResId = R.drawable.vesuvio_pizza
+            imageResId = getResourceIdByCategory()
         )
     }
 

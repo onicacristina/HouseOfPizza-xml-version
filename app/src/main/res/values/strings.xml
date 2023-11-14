@@ -29,5 +29,6 @@
     <string name="no_restaurants_found">No restaurants found</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="toppings">Toppings: </string>
+    <string name="money">%1$s lei</string>
 
 </resources>

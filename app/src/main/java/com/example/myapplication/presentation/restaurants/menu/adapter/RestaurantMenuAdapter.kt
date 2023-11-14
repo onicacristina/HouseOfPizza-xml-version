@@ -40,9 +40,7 @@ class RestaurantMenuAdapter(
         }
 
         private fun bindIcon(data: MenuRestaurant) {
-            val imageResourceId =
-                if (data.id == 1) R.drawable.restaurant_1 else R.drawable.restaurant_2
-            binding.ivRestaurant.setImageResource(imageResourceId)
+            binding.ivRestaurant.setImageResource(data.imageResId)
         }
 
         private fun bindName(data: MenuRestaurant) {
@@ -54,7 +52,8 @@ class RestaurantMenuAdapter(
         }
 
         private fun bindPrice(data: MenuRestaurant) {
-            binding.tvPrice.text = data.price.toString()
+            val context = binding.tvPrice.context
+            binding.tvPrice.text = context.getString(R.string.money,data.price.toString())
         }
 
         private fun bindToppings(data: MenuRestaurant) {
