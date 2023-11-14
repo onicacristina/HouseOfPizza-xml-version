@@ -66,8 +66,10 @@ class RestaurantMenuFragment :
         adapter = RestaurantMenuAdapter(
             RestaurantMenuDiffUtil(),
             onAdditionClickListener = { data ->
+                viewModel.onAddition(data)
             },
             onDecreaseClickListener = { data ->
+                viewModel.onDecrease(data)
             }
         )
         recyclerView.adapter = adapter

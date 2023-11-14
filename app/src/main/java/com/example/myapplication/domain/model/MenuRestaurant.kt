@@ -12,7 +12,8 @@ data class MenuRestaurant(
     val toppings: List<String>? = null,
     val price: Int,
     val rank: Int? = null,
-    val imageResId: Int
+    val imageResId: Int,
+    val quantity: Int
 ) {
     fun getFormattedToppings(): String? {
         return toppings?.joinToString(separator = ", ")

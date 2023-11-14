@@ -18,6 +18,9 @@ class RestaurantMenuAdapter(
     private val onDecreaseClickListener: OnDecreaseClickListener
 ) : ListAdapter<MenuRestaurant, RestaurantMenuAdapter.ViewHolder>(diffutils) {
 
+    companion object {
+        const val QUANTITY_CHANGED = "QUANTITY_CHANGED"
+    }
 
     class ViewHolder(
         private val binding: ItemMenuRestaurantBinding,
@@ -35,6 +38,7 @@ class RestaurantMenuAdapter(
             bindCategory(data)
             bindPrice(data)
             bindToppings(data)
+            bindQuantity(data)
             bindAdditionClick(data)
             bindDecreaseClick(data)
         }
@@ -53,7 +57,7 @@ class RestaurantMenuAdapter(
 
         private fun bindPrice(data: MenuRestaurant) {
             val context = binding.tvPrice.context
-            binding.tvPrice.text = context.getString(R.string.money,data.price.toString())
+            binding.tvPrice.text = context.getString(R.string.money, data.price.toString())
         }
 
         private fun bindToppings(data: MenuRestaurant) {
@@ -66,12 +70,20 @@ class RestaurantMenuAdapter(
             }
         }
 
-        private fun bindAdditionClick(data: MenuRestaurant) {
+        fun bindQuantity(data: MenuRestaurant) {
+            binding.tvQuantity.text = data.quantity.toString()
+        }
 
+        private fun bindAdditionClick(data: MenuRestaurant) {
+            binding.btnAddition.setOnClickListener {
+                onAdditionClickListener.invoke(data)
+            }
         }
 
         private fun bindDecreaseClick(data: MenuRestaurant) {
-
+            binding.btnDecrease.setOnClickListener {
+                onDecreaseClickListener.invoke(data)
+            }
         }
     }
 
@@ -87,5 +99,16 @@ class RestaurantMenuAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val restaurant = getItem(position)
         holder.bind(restaurant)
+    }
+
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if (payloads.contains(QUANTITY_CHANGED))
+            holder.bindQuantity(getItem(position))
+        else
+            holder.bind(getItem(position))
     }
 }

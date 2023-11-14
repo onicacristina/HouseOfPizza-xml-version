@@ -16,12 +16,11 @@ data class RestaurantMenuDto(
             id = id,
             name = name,
             category = category,
-//            toppings = emptyList(),
             toppings = topping,
             price = price,
             rank = rank,
-//            imageResId = R.drawable.vesuvio_pizza
-            imageResId = getResourceIdByCategory()
+            imageResId = getResourceIdByCategory(),
+            quantity = 0
         )
     }
 
